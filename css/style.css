@@ -1,0 +1,41 @@
+h1 {
+    color: #777777;
+    padding: 10px 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 30px;
+}
+
+h3 {
+    color: #777777;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 18px;
+    margin: 10px 20px 10px 20px;
+}
+
+p {
+    color: #777777;
+    font-size: 16px;
+    margin: 20px 20px 20px 20px;
+}
+
+button {
+    color: #777777;
+    margin: 20px 20px 20px 20px;
+}
+
+#add-movie {
+    color: #777777;
+    margin: 20px 20px 20px 20px;
+}
+
+
+label {
+    color: #777777;
+    margin: 20px 20px 20px 20px;
+}
+
+.gem-image {
+    width: 100px;
+    height: 100px;
+    padding: 20px;
+  }
