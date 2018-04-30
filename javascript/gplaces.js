@@ -1,6 +1,12 @@
 // Initial array of movies
 var buttonArr = ["The Matrix", "The Notebook", "Mr. Nobody", "The Lion King"];
 
+jQuery.ajaxPrefilter(function(options) {
+    if (options.crossDomain && jQuery.support.cors) {
+        options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
+    }
+  });
+
 // Function for displaying movie data
 function renderButtons() {
 
@@ -29,7 +35,7 @@ function renderButtons() {
  function searchGooglePlaces(searchString) {
     //var searchString = searchString;
     // Constructing a queryURL using the search term   
-    var queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/xml?query=" +
+    var queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" +
     searchString + "&key=AIzaSyD0QSfHIgzXIakE7DMJpdq18X6A8X4OHy4";
 
     // Performing an AJAX request with the queryURL
