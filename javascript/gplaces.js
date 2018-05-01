@@ -49,29 +49,44 @@ function renderButtons() {
 
         console.log(response);
         // storing the data from the AJAX request in the results variable
-        var results = response.data;
+        var results = response.results;
 
-        // Looping through each result item
-        for (var i = 0; i < results.length; i++) {
 
-        // Creating and storing a div tag
-        var gplacesDiv = $("<div>");
-
-        // Creating a paragraph tag with the result item's rating
-        var p = $("<p>").text("Rating: " + results[i].rating);
-
-        // Creating and storing an image tag
-        var giphyImage = $("<img>");
-        // Setting the src attribute of the image to a property pulled off the result item
-        giphyImage.attr("src", results[i].images.fixed_height.url);
-
-        // Appending the paragraph and image tag to the animalDiv
-        gplacesDiv.append(p);
-        gplacesDiv.append(giphyImage);
-
-        // Prependng the animalDiv to the HTML page in the "#gifs-appear-here" div
-        $("#google-places-here").prepend(gplacesDiv);
+        for (var j = 0; j < results.length; j++){
+            var result = results[j];
+            var placeDiv = $("<div class='card'>");
+            //adds image
+            placeDiv.append("<div class='card-image'><img src='" + result.photos[0] + "' alt='place image'></div>");
+            //adds name and type
+            placeDiv.append("<header class='card-header'><p class='card-header-title'>" + result.name + "</p><p class='title is-6'>" + result.types);
+            //adds other content
+            placeDiv.append("<div class='card-content'><div class='content'>Rating: " + result.rating + "<br>Address: " + result.formatted_address + "<br><a href='" + result.website + "'>Website</a></div></div>");
+            $("#google-places-here").append(placeDiv);
+            console.log("Getting Gere");
         }
+
+    //     // Looping through each result item
+    //     for (var i = 0; i < results.length; i++) {
+
+    //     // Creating and storing a div tag
+    //     var gplacesDiv = $("<div>");
+
+    //     // Creating a paragraph tag with the result item's rating
+    //     var p = $("<p>").text("Rating: " + results[i].rating);
+
+    //     // Creating and storing an image tag
+    //     var giphyImage = $("<img>");
+    //     // Setting the src attribute of the image to a property pulled off the result item
+    //     giphyImage.attr("src", results[i].images.fixed_height.url);
+
+    //     // Appending the paragraph and image tag to the animalDiv
+    //     gplacesDiv.append(p);
+    //     gplacesDiv.append(giphyImage);
+
+    //    // Prependng the animalDiv to the HTML page in the "#gifs-appear-here" div
+    //     $("#google-places-here").prepend(gplacesDiv);
+        //console.log("Getting Gere");
+       // }
     });    
  }
 
